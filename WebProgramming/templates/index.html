@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>
-            Registration Page
-        </title>
-    </head>
-    <body>
-        <h1>Best Battle-Royale Game</h1>
-        <form action="/register" method="post">
-            <input name="name" placeholder="Name" type="text">
-            <select name="game">
-                <option disabled selected value="">Game</option>
-                <option value="Apex Legends">Apex Legends</option>
-                <option value="PUBG">PUBG</option>
-                <option value="Fortnite">Fortnite</option>
-            </select>
-            <input type="submit" value="Register">
-        </form>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+    <h1>Best Battle-Royale Game</h1>
+    <form action="/register" method="post">
+        <input name="name" placeholder="Name" type="text">
+        <select name="game">
+            <option disabled selected value="">Game</option>
+            <option value="Apex Legends">Apex Legends</option>
+            <option value="PUBG">PUBG</option>
+            <option value="Fortnite">Fortnite</option>
+        </select>
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}

@@ -12,5 +12,5 @@ def register():
     game = request.form.get("game")
 
     if not name or not game:
-        return "failure"
+        return render_template("failure.html")
     return render_template("success.html")    
