@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import csv 
 
 app = Flask(__name__)
 
@@ -10,7 +11,10 @@ def index():
 
 @app.route("/registrants")
 def registrants():
-    return render_template("registered.html", students = students)
+    file = open("registered.csv","r")
+    reader = csv.reader(file)
+    students = list(reader)
+    return render_template("registered.html",students=students)
 
 
 @app.route("/register", methods=["POST"])
@@ -21,5 +25,8 @@ def register():
     if not name or not game:
         return render_template("failure.html")
 
-    students.append(f"{name} voted for {game}")
-    return redirect("/registrants")    
+    file = open("registered.csv","a")
+    writer = csv.writer(file)
+    writer.writerow((name,game))
+    file.close
+    return redirect("/registrants")

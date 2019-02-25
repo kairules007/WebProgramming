@@ -3,7 +3,7 @@
 {% block body %}
     <ul>
         {% for student in students %}
-            <li>{{student}}</li>
+            <li>{{student[0]}} voted for {{student[1]}}</li>
         {% endfor %}
     </ul>
 {% endblock %}
